@@ -9,7 +9,7 @@ import { AuthContext } from '../context/auth';
 
 export default function Login(props) {
   const context = useContext(AuthContext);
-  const [errors, setErrors] = useState({});
+  const [_, setErrors] = useState({});
 
   const { onChange, onSubmit, values } = useForm(loginUserCallback, {
     username: '',
