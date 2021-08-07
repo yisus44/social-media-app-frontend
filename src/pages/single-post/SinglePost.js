@@ -12,10 +12,10 @@ import {
   Label,
 } from 'semantic-ui-react';
 
-import { AuthContext } from '../context/auth';
-import LikeButton from '../components/LikeButton';
-import DeleteButton from '../components/DeleteButton';
-import MyPopup from '../util/myPopup';
+import { AuthContext } from '../../context/auth';
+import LikeButton from '../../components/like-button/LikeButton';
+import DeleteButton from '../../components/delete-button/DeleteButton';
+import MyPopup from '../../util/myPopup';
 
 export default function SinglePost(props) {
   const postId = props.match.params.id;
@@ -92,10 +92,10 @@ export default function SinglePost(props) {
                     labelPosition="right"
                     onClick={() => console.log('Comment on post')}
                   >
-                    <Button basic color="yellow">
+                    <Button basic color="vk">
                       <Icon name="comments" />
                     </Button>
-                    <Label basic color="yellow" pointing="left">
+                    <Label basic color="vk" pointing="left">
                       {commentCount}
                     </Label>
                   </Button>
@@ -108,7 +108,7 @@ export default function SinglePost(props) {
             {user && (
               <Card fluid>
                 <Card.Content>
-                  <p>Post a comment</p>
+                  <p>Join the discussion</p>
                   <Form>
                     <div className="ui action input fluid">
                       <input
@@ -119,15 +119,20 @@ export default function SinglePost(props) {
                         onChange={(event) => setComment(event.target.value)}
                         ref={commentInputRef}
                       />
+
                       <button
                         type="submit"
-                        className="ui button red"
+                        className="ui button brown"
                         disabled={comment.trim() === ''}
                         onClick={submitComment}
                       >
-                        Submit
+                        Submit!
                       </button>
                     </div>
+
+                    <h5>
+                      If you are not seeing your comment please reload the page
+                    </h5>
                   </Form>
                 </Card.Content>
               </Card>

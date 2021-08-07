@@ -3,9 +3,9 @@ import React, { useState, useContext } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/client';
 
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 
-import { AuthContext } from '../context/auth';
+import { AuthContext } from '../../context/auth';
 
 export default function Login(props) {
   const context = useContext(AuthContext);
@@ -54,7 +54,7 @@ export default function Login(props) {
           onChange={onChange}
         />
 
-        <Button type="submit" primary>
+        <Button type="submit" color="brown">
           Login!
         </Button>
       </Form>

@@ -4,19 +4,19 @@ import moment from 'moment';
 
 import { Link } from 'react-router-dom';
 
-import { AuthContext } from '../context/auth';
-import LikeButton from './LikeButton';
+import { AuthContext } from '../../context/auth';
+import LikeButton from '../like-button/LikeButton';
 
-import DeleteButton from './DeleteButton';
+import DeleteButton from '../delete-button/DeleteButton';
 
-import MyPopup from '../util/myPopup';
+import MyPopup from '../../util/myPopup';
 
 export default function PostCard({
   post: { body, createdAt, id, username, likeCount, commentCount, likes },
 }) {
   const { user } = useContext(AuthContext);
   return (
-    <Card fluid>
+    <Card fluid color="brown">
       <Card.Content>
         <Image
           floated="right"
@@ -31,12 +31,14 @@ export default function PostCard({
       </Card.Content>
       <Card.Content extra>
         <LikeButton user={user} post={{ id, likes, likeCount }} />
+        <br />
+        <br />
         <MyPopup content="Comment on post">
           <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
-            <Button color="yellow" basic>
+            <Button color="black" basic>
               <Icon name="comments" />
             </Button>
-            <Label basic color="yellow" pointing="left">
+            <Label basic color="black" pointing="left">
               {commentCount}
             </Label>
           </Button>

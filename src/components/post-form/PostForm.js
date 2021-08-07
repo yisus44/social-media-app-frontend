@@ -4,8 +4,10 @@ import React from 'react';
 import { useMutation } from '@apollo/client';
 
 import { Button, Form } from 'semantic-ui-react';
-import { useForm } from '../hooks/useForm';
-import { FETCH_POSTS_QUERY } from '../util/graphql';
+
+import { FETCH_POSTS_QUERY } from '../../util/graphql';
+
+import { useForm } from '../../hooks/useForm';
 
 export default function PostForm() {
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
@@ -41,17 +43,26 @@ export default function PostForm() {
 
   return (
     <>
-      <Form onSubmit={onSubmit}>
-        <h2>Create a post:</h2>
+      <Form onSubmit={onSubmit} style={{ display: 'grid', margin: 'auto' }}>
+        <h2>Write your own post!</h2>
         <Form.Field>
           <Form.Input
-            placeholder="Hi World!"
+            placeholder="What are you thinking about?"
             name="body"
             onChange={onChange}
             value={values.body}
             error={error ? true : false}
           />
-          <Button type="submit" color="red">
+
+          <Button
+            type="submit"
+            style={{
+              display: 'grid',
+              margin: 'auto',
+              backgroundColor: 'brown',
+              color: 'white',
+            }}
+          >
             Submit
           </Button>
         </Form.Field>

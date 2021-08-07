@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 
-import MyPopup from '../util/myPopup';
+import MyPopup from '../../util/myPopup';
 
 export default function LikeButton({ user, post: { id, likeCount, likes } }) {
   const [liked, setLiked] = useState(false);
@@ -21,17 +21,17 @@ export default function LikeButton({ user, post: { id, likeCount, likes } }) {
 
   const likeButton = user ? (
     liked ? (
-      <Button color="red">
+      <Button color="brown">
         <Icon name="heart" />
       </Button>
     ) : (
-      <Button color="red" basic>
+      <Button color="brown" basic>
         <Icon name="heart" />
       </Button>
     )
   ) : (
     //this reach if we dont are logged in
-    <Button as={Link} to="/login" color="red" basic>
+    <Button as={Link} to="/login" color="brown" basic>
       <Icon name="heart" />
     </Button>
   );
@@ -39,7 +39,7 @@ export default function LikeButton({ user, post: { id, likeCount, likes } }) {
   return (
     <Button as="div" labelPosition="right" onClick={likePost}>
       <MyPopup content={liked ? 'Unlike' : 'Like'}>{likeButton}</MyPopup>
-      <Label basic color="teal" pointing="left">
+      <Label basic color="brown" pointing="left">
         {likeCount}
       </Label>
     </Button>

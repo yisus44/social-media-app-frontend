@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/client';
 
-import { AuthContext } from '../context/auth';
+import { AuthContext } from '../../context/auth';
 
 export default function Register(props) {
   const context = useContext(AuthContext);
@@ -80,8 +80,8 @@ export default function Register(props) {
           error={errors?.confirmPassword ? true : false}
           onChange={onChange}
         />
-        <Button type="submit" primary>
-          Register!
+        <Button type="submit" color="brown">
+          Sign me in!
         </Button>
       </Form>
       {errors?.length > 0
