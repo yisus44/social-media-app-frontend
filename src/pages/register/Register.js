@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/auth';
 
 export default function Register(props) {
   const context = useContext(AuthContext);
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
   const [values, setValues] = useState({
     username: '',
     email: '',
@@ -20,13 +20,13 @@ export default function Register(props) {
   };
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
     update(_, result) {
-      context.login(result.data.login);
+      console.log(result);
+      context.login(result.data.register);
       props.history.push('/');
     },
     onError(err) {
       alert('Bad input');
-      console.log(err.graphQLErrors[0].extensions.exception.errors);
-      setErrors(err.graphQLErrors[0].extensions.exception.errors);
+      console.log(err);
     },
     variables: values,
   });
@@ -80,6 +80,7 @@ export default function Register(props) {
           error={errors?.confirmPassword ? true : false}
           onChange={onChange}
         />
+
         <Button type="submit" color="brown">
           Sign me in!
         </Button>

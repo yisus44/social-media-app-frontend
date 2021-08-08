@@ -29,7 +29,7 @@ export default function Home() {
           <h1>Loading posts...</h1>
         ) : (
           <Transition.Group>
-            {data.getPosts &&
+            {data &&
               data.getPosts.map((post) => (
                 <Grid.Column key={post.id}>
                   <PostCard post={post} />
