@@ -13,7 +13,7 @@ export default function PostCard({
   post: { body, createdAt, id, username, likeCount, commentCount, likes },
 }) {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
   return (
     <Card fluid color="brown">
       <Card.Content>

@@ -20,7 +20,6 @@ export default function Register(props) {
   };
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
     update(_, result) {
-      console.log(result);
       context.login(result.data.register);
       props.history.push('/');
     },

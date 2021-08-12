@@ -13,8 +13,6 @@ export default function Home() {
   const { user } = useContext(AuthContext);
   if (loading) {
     return <h1>Loading posts...</h1>;
-  } else {
-    console.log();
   }
   return (
     <Grid columns={3}>
