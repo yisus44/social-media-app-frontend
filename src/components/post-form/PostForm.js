@@ -1,12 +1,9 @@
 import gql from 'graphql-tag';
 import React from 'react';
-
 import { useMutation } from '@apollo/client';
-
 import { Button, Form } from 'semantic-ui-react';
 
 import { FETCH_POSTS_QUERY } from '../../util/graphql';
-
 import { useForm } from '../../hooks/useForm';
 
 export default function PostForm() {

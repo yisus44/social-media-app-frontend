@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { Card, Icon, Label, Image, Button } from 'semantic-ui-react';
 import moment from 'moment';
-
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../context/auth';
 import LikeButton from '../like-button/LikeButton';
-
 import DeleteButton from '../delete-button/DeleteButton';
-
+import ConfigButton from '../config-button/ConfigButton';
 import MyPopup from '../../util/myPopup';
 
 export default function PostCard({
@@ -30,7 +28,7 @@ export default function PostCard({
         </Card.Meta>
         <Card.Description>{body}</Card.Description>
       </Card.Content>
-      <Card.Content extra>
+      <Card.Content>
         <LikeButton user={user} post={{ id, likes, likeCount }} />
         <br />
         <br />
@@ -44,6 +42,9 @@ export default function PostCard({
             </Label>
           </Button>
         </MyPopup>
+        {user && user.username === username && (
+          <ConfigButton postId={id}></ConfigButton>
+        )}
         {user && user.username === username && (
           <DeleteButton postId={id}></DeleteButton>
         )}
