@@ -11,6 +11,7 @@ import { AuthProvider } from './context/auth';
 import UpdateFormPost from './pages/update-post-form/UpdatePostForm';
 import AuthRoute from './util/AuthRoute';
 import Footer from './components/footer/Footer';
+import MostPopular from './pages/most-popular/MostPopular';
 
 import SinglePost from './pages/single-post/SinglePost';
 
@@ -22,6 +23,7 @@ function App() {
           <MenuBar />
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/posts/:id" component={SinglePost}></Route>
+          <Route exact path="/popular" component={MostPopular}></Route>
           <Route
             exact
             path="/posts/edit/:id"

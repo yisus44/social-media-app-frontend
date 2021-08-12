@@ -13,9 +13,22 @@ export default function MenuBar() {
 
   const menuBar = user ? (
     <Menu pointing secondary size="massive" color="brown">
-      <Menu.Item name={user.username} active as={Link} to="/" />
+      <Menu.Item
+        name={user.username}
+        active={activeItem === user.username}
+        onClick={handleItemClick}
+        as={Link}
+        to="/"
+      />
+      <Menu.Item
+        name="most_viewed"
+        active={activeItem === 'most_viewed'}
+        onClick={handleItemClick}
+        as={Link}
+        to="/popular"
+      />
       <Menu.Menu position="right">
-        <Menu.Item name="Social media app" onClick={logout} />
+        <Menu.Item name="Social media app" onClick={handleItemClick} />
       </Menu.Menu>
       <Menu.Menu position="right">
         <Menu.Item name="logout" onClick={logout} />
@@ -37,6 +50,9 @@ export default function MenuBar() {
         as={Link}
         to="/"
       />
+      <Menu.Menu position="right">
+        <Menu.Item name="Social media app" onClick={handleItemClick} />
+      </Menu.Menu>
       <Menu.Menu position="right">
         <Menu.Item
           name="login"
