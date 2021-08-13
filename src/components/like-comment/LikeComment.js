@@ -13,7 +13,6 @@ export default function LikeComment({
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    console.log('yeye');
     if (user && likes.find((like) => like.username === user.username)) {
       setLiked(true);
     } else {
@@ -24,6 +23,11 @@ export default function LikeComment({
   const [likeComment] = useMutation(LIKE_COMMENT_MUTATION, {
     variables: { commentId: id },
   });
+
+  async function onClick() {
+    await likeComment();
+    window.location.reload();
+  }
 
   const likeButton = user ? (
     liked ? (
@@ -43,7 +47,7 @@ export default function LikeComment({
   );
 
   return (
-    <Button as="div" labelPosition="right" onClick={likeComment}>
+    <Button as="div" labelPosition="right" onClick={onClick}>
       <MyPopup content={liked ? 'Unlike' : 'Like'}>{likeButton}</MyPopup>
       <Label basic color="brown" pointing="right">
         {likeCount}
