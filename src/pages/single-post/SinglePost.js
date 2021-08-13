@@ -15,6 +15,7 @@ import {
 import { AuthContext } from '../../context/auth';
 import LikeButton from '../../components/like-button/LikeButton';
 import DeleteButton from '../../components/delete-button/DeleteButton';
+import LikeComment from '../../components/like-comment/LikeComment';
 import MyPopup from '../../util/myPopup';
 
 export default function SinglePost(props) {
@@ -94,10 +95,10 @@ export default function SinglePost(props) {
                     labelPosition="right"
                     onClick={() => console.log('Comment on post')}
                   >
-                    <Button basic color="vk">
+                    <Button basic color="grey">
                       <Icon name="comments" />
                     </Button>
-                    <Label basic color="vk" pointing="left">
+                    <Label basic color="grey" pointing="left">
                       {commentCount}
                     </Label>
                   </Button>
@@ -133,7 +134,8 @@ export default function SinglePost(props) {
                     </div>
 
                     <h5>
-                      If you are not seeing your comment please reload the page
+                      If you are not seeing your comment or like please reload
+                      the page
                     </h5>
                   </Form>
                 </Card.Content>
@@ -141,6 +143,7 @@ export default function SinglePost(props) {
             )}
             {comments.map((comment) => (
               <Card fluid key={comment.id}>
+                <LikeComment comment={comment} user={user} />
                 <Card.Content>
                   {user && user.username === comment.username && (
                     <DeleteButton postId={id} commentId={comment.id} />
@@ -193,6 +196,10 @@ const FETCH_POST_QUERY = gql`
         username
         createdAt
         body
+        likes {
+          username
+        }
+        likeCount
       }
     }
   }
