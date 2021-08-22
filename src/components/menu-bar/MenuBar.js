@@ -48,7 +48,7 @@ export default function MenuBar() {
         active={activeItem === 'most viewed'}
         onClick={handleItemClick}
         as={Link}
-        to="/"
+        to="/popular"
       />
       <Menu.Menu position="right">
         <Menu.Item name="Social media app" onClick={handleItemClick} />

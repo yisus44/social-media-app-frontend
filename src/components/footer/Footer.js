@@ -7,19 +7,23 @@ export default function Footer() {
     <div className="footer">
       <br />
       <Header size="small">
-        Project mainly developed and updated by Jesus Adrian Flores Arevalo
-        using Postgres, NodeJS, GraphQL and ReactJS
-        <br />
-        Here you can find code for the
-        <a href="https://github.com/yisus44/social-media-app-frontend">
-          {' '}
-          frontend{' '}
-        </a>
-        and for the
-        <a href="https://github.com/yisus44/exercise-tracker-graph">
-          {' '}
-          backend.
-        </a>{' '}
+        <p style={{ color: '#FFFF' }}>
+          <strong>
+            Project mainly developed and updated by Jesus Adrian Flores Arevalo
+            using Postgres, NodeJS, GraphQL and ReactJS
+            <br />
+            Here you can find code for the
+            <a href="https://github.com/yisus44/social-media-app-frontend">
+              {' '}
+              frontend{' '}
+            </a>
+            and for the
+            <a href="https://github.com/yisus44/exercise-tracker-graph">
+              {' '}
+              backend.
+            </a>{' '}
+          </strong>
+        </p>
       </Header>
     </div>
   );

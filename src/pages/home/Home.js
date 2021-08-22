@@ -7,7 +7,7 @@ import PostForm from '../../components/post-form/PostForm';
 import { AuthContext } from '../../context/auth';
 
 import { FETCH_POSTS_QUERY } from '../../util/graphql';
-
+let postCount = 0;
 export default function Home() {
   const { loading, data } = useQuery(FETCH_POSTS_QUERY);
   const { user } = useContext(AuthContext);
@@ -28,11 +28,22 @@ export default function Home() {
         ) : (
           <Transition.Group>
             {data &&
-              data.getPosts.map((post) => (
-                <Grid.Column key={post.id}>
-                  <PostCard post={post} />
-                </Grid.Column>
-              ))}
+              data.getPosts.map((post) => {
+                if (postCount % 3 === 0) {
+                  return (
+                    <Grid.Column key={post.id}>
+                      <br></br>
+                      <PostCard post={post} />
+                    </Grid.Column>
+                  );
+                }
+                postCount++;
+                return (
+                  <Grid.Column key={post.id}>
+                    <PostCard post={post} />
+                  </Grid.Column>
+                );
+              })}
           </Transition.Group>
         )}
       </Grid.Row>
