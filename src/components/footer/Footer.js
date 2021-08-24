@@ -18,7 +18,7 @@ export default function Footer() {
               frontend{' '}
             </a>
             and for the
-            <a href="https://github.com/yisus44/exercise-tracker-graph">
+            <a href="https://github.com/yisus44/social-media-app-backend">
               {' '}
               backend.
             </a>{' '}
